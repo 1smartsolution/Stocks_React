@@ -1,0 +1,4 @@
+.tickerColumns {
+    display: flex;
+    flex-wrap: wrap;
+}
