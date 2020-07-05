@@ -253,4 +253,3 @@ ApexChart.propTypes = {
 };
 
 export default ApexChart;
-
