@@ -31,7 +31,6 @@ const CompanyUS = () => {
 
   const fetchcompanyDataWithFetchAPI = async (symbol) => {
     setLoadingState(true);
-<<<<<<< HEAD
     try
     {
       if (symbol.length > 0)
@@ -42,47 +41,12 @@ const CompanyUS = () => {
         if ((result !== undefined) && (result !== ''))
         {
           state = {symbol: symbol, companyData: result};
-=======
-    if (symbol.length > 0)
-    {
-      let goOn = true;
-      response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.company&symbol='+symbol);
-      result = await response.json();
-      if ((result !== undefined) && (result !== ''))
-      {
-        state = {symbol: symbol, companyData: result};
-      }
-      else
-      {
-        goOn = false;
-        alert('A connection error happend when loading company data. Please try again');
-      }
-
-      if (goOn)
-      {
-        response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.logo&symbol='+symbol);
-        result = await response.json();
-        if ((result !== undefined) && (result !== ''))
-        {
-          state.logoData = result;
-        }
-      }
-
-      if (goOn)
-      {
-        response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.intradayPrices&symbol='+symbol);
-        result = await response.json();
-        if ((result !== undefined) && (result !== ''))
-        {
-          state.intradayPricesData = result;
->>>>>>> 76c0d7ebad08f13762f92aee358eb334c1c311ba
         }
         else
         {
           goOn = false;
           alert('A connection error happend when loading company data. Please try again');
         }
-<<<<<<< HEAD
 
         if (goOn)
         {
@@ -173,76 +137,12 @@ const CompanyUS = () => {
     catch
     {
       alert('A connection error happend when loading company data. Please try again later');
-=======
-      }
-
-      if (goOn)
-      {
-        response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.news&symbol='+symbol);
-        result = await response.json();
-        if ((result !== undefined) && (result !== ''))
-        {
-          state.newsData = result;
-        }
-      }
-
-      if (goOn)
-      {
-        response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.previous&symbol='+symbol);
-        result = await response.json();
-        if ((result !== undefined) && (result !== ''))
-        {
-          state.previousData = result;
-        }
-        else
-        {
-          goOn = false;
-          alert('A connection error happend when loading company data. Please try again');
-        }
-      }
-
-      if (goOn)
-      {
-        response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.stats&symbol='+symbol);
-        result = await response.json();
-        if ((result !== undefined) && (result !== ''))
-        {
-          state.statsData = result;
-        }
-        else
-        {
-          goOn = false;
-          alert('A connection error happend when loading company data. Please try again');
-        }
-      }
-
-      if (goOn)
-      {
-        response = await fetch(process.env.REACT_APP_NODE_API+'/testAPI?type=stocks.quote&symbol='+symbol);
-        result = await response.json();
-        if ((result !== undefined) && (result !== ''))
-        {
-          state.quoteData = result;
-        }
-        else
-        {
-          goOn = false;
-          alert('A connection error happend when loading company data. Please try again');
-        }
-      }
-
-      if (goOn)
-      {
-        setCompanyData(state);
-      }
->>>>>>> 76c0d7ebad08f13762f92aee358eb334c1c311ba
     }
     setLoadingState(false);
   };
 
 
   const fetchTimeSeriesWithFetchAPI = async (symbol, interval='', period='daily') => {
-<<<<<<< HEAD
     try
     {
       if (symbol.length > 0)
@@ -263,21 +163,6 @@ const CompanyUS = () => {
     catch
     {
       alert('A connection error happend when loading company data. Please try again later');
-=======
-    if (symbol.length > 0)
-    {
-      response = await fetch(process.env.REACT_APP_CF_API+'/timeSeries.cfm?symbol='+symbol+'&interval='+interval+'&period='+period);
-      result = await response.json();
-      if (result["Note"] === undefined)
-      {
-        setCompanyTSData({timeSeries: result, timeSeriesInterval: interval, timeSeriesPeriod: period});
-      }
-      else
-      {
-        setCompanyTSData(stateTS);
-        alert('A connection error happend when loading time series. Please try again');
-      }
->>>>>>> 76c0d7ebad08f13762f92aee358eb334c1c311ba
     }
   };
 
